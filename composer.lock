@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "81179c278bf6fc24c62be51c8b2eaddf",
+    "content-hash": "ee7c64e671fd9564c560757be35a9799",
     "packages": [],
     "packages-dev": [
         {
@@ -857,12 +857,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "233872f9640164f6220a0e022cd17d538743e906"
+                "reference": "2593ca5deed8c228c4dadce7e1e5bfb9209f908f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/233872f9640164f6220a0e022cd17d538743e906",
-                "reference": "233872f9640164f6220a0e022cd17d538743e906",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/2593ca5deed8c228c4dadce7e1e5bfb9209f908f",
+                "reference": "2593ca5deed8c228c4dadce7e1e5bfb9209f908f",
                 "shasum": ""
             },
             "require": {
@@ -944,7 +944,7 @@
             },
             "funding": [
                 {
-                    "url": "https://phpunit.de/donate.html",
+                    "url": "https://phpunit.de/sponsors.html",
                     "type": "custom"
                 },
                 {
@@ -952,7 +952,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-10-19T07:42:16+00:00"
+            "time": "2021-10-24T15:01:57+00:00"
         },
         {
             "name": "sebastian/cli-parser",
@@ -2117,7 +2117,9 @@
     "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
-    "platform": [],
+    "platform": {
+        "php": "~8.0"
+    },
     "platform-dev": [],
     "plugin-api-version": "2.0.0"
 }
