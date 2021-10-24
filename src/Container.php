@@ -23,7 +23,7 @@ class Container
     public function singleton(string $abstract, object $concrete): void
     {
         if (!$concrete instanceof $abstract) {
-            throw new UnresolvableBindingException();
+            throw new UnresolvableBindingException('Binding is not instance of abstract.');
         }
 
         $this->singletons[$abstract] = $concrete;
@@ -54,7 +54,7 @@ class Container
             class_exists($abstract)
             && !(is_subclass_of($binding, $abstract) || $abstract === $binding || $binding instanceof $abstract)
         ) {
-            throw new UnresolvableBindingException();
+            throw new UnresolvableBindingException('Incorrect binding type.');
         }
 
         /*
@@ -64,11 +64,7 @@ class Container
             return $this->resolveClassBinding($binding);
         }
 
-        if (is_object($binding)) {
-            return clone $binding;
-        }
-
-        throw new UnresolvableBindingException();
+        return clone $binding;
     }
 
     /**
@@ -108,6 +104,6 @@ class Container
             return $parameter->getDefaultValue();
         }
 
-        throw new UnresolvableBindingException();
+        throw new UnresolvableBindingException('Cannot resolve primitive or untyped constructor argument if it doesn\'t have default value.');
     }
 }

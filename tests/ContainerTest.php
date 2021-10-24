@@ -163,6 +163,8 @@ class ContainerTest extends TestCase
     public function testMakeWhenBindingIsFoundAndItIsClassNameWithUntypedParamWithoutDefaultValue(): void
     {
         $this->expectException(UnresolvableBindingException::class);
+        $this->expectExceptionMessage('Cannot resolve primitive or untyped constructor argument if it doesn\'t have default value.');
+
         $container = new Container();
         $container->bind(TestClassWithUntypedParamWithoutDefaultValue::class, TestClassWithUntypedParamWithoutDefaultValue::class);
 
@@ -243,6 +245,24 @@ class ContainerTest extends TestCase
     }
 
     /**
+     * @throws ReflectionException
+     * @throws UnresolvableBindingException
+     *
+     * @covers \Container\Container::make
+     * @covers \Container\Container::bind
+     */
+    public function testMakeWhenBindingIsIncorrectType(): void
+    {
+        $this->expectException(UnresolvableBindingException::class);
+        $this->expectExceptionMessage('Incorrect binding type.');
+
+        $container = new Container();
+        $container->bind(TestClassWithoutConstructor::class, []);
+
+        $container->make(TestClassWithoutConstructor::class);
+    }
+
+    /**
      * @throws UnresolvableBindingException
      *
      * @covers \Container\Container::singleton
@@ -250,6 +270,7 @@ class ContainerTest extends TestCase
     public function testSingletonWhenConcreteIsNotInstanceOfAbstract(): void
     {
         $this->expectException(UnresolvableBindingException::class);
+        $this->expectExceptionMessage('Binding is not instance of abstract.');
 
         $container = new Container();
         $container->singleton(TestClassWithEmptyConstructor::class, new TestClassWithoutConstructor());
