@@ -1,0 +1,19 @@
+{
+    "name": "coozieki/ioc-container",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "vadim.vorobyev",
+            "email": "vadimvor.work@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require-dev": {
+        "phpunit/phpunit": "~9.5.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Container\\": "src/"
+        }
+    }
+}
