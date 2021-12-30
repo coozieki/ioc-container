@@ -1,13 +1,14 @@
 {
     "name": "coozieki/ioc-container",
     "license": "MIT",
+    "version": "0.1.0",
     "authors": [
         {
             "name": "vadim.vorobyev",
             "email": "vadimvor.work@gmail.com"
         }
     ],
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "require": {
         "php": "~8.0"
     },
